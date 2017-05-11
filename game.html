@@ -4,29 +4,30 @@
 <script>
     radius = 20
     class Ball {
-        constructor(id, currPos, speed){
+        constructor(id, currPos, speed) {
             this.id = id
             this.currPos = currPos
             this.speed = speed
         }
 
         manageWallHit() {
+
             var x = this.currPos.x
             var y = this.currPos.y
 
-            var angle = 2*Math.PI - atan(y / x)
-            
-            this.currPos.x = tan(angle)
-            this.currPos.y = 
+            var angle = 180 - Math.atan2(y / x) * 180 / Math.PI
+
+            // this.currPos.x = Math.atan2(angle)
+            // this.currPos.y = 
         }
 
         update() {
 
-            if (this.currPos.x + radius >= canvas.width || this.currPos.x - radius <= 0){
+            if (this.currPos.x + radius >= canvas.width || this.currPos.x - radius <= 0) {
                 this.manageWallHit()
             }
 
-            if (this.currPos.y + radius >= canvas.height || this.currPos.y - radius <= 0){
+            if (this.currPos.y + radius >= canvas.height || this.currPos.y - radius <= 0) {
                 this.manageWallHit()
             }
 
@@ -34,18 +35,30 @@
             this.currPos.y += this.speed.dy
         }
 
-        manageWallhit(){
-             
+        manageWallhit() {
+
         }
     }
 
-    board = [[],[],[],[],[]]
-    balls = [new Ball(1, {x: 30, y: 30}, {dx: 1, dy: 1})]
+    board = [
+        [],
+        [],
+        [],
+        [],
+        []
+    ]
+    balls = [new Ball(1, {
+        x: 30,
+        y: 30
+    }, {
+        dx: 1,
+        dy: 1
+    })]
 
     var canvas = document.querySelector('canvas')
     var ctx = canvas.getContext('2d')
     canvas.height = canvas.width
-    
+
     function refreshBoard() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.moveTo(0, canvas.height / 2)
@@ -57,20 +70,19 @@
     }
 
     function update() {
-            drawBoard()
-            window.requestAnimationFrame(update);
+        drawBoard()
+        window.requestAnimationFrame(update);
     }
 
     function drawBoard() {
         refreshBoard()
-        for(var ball of balls){
+        for (var ball of balls) {
             ctx.beginPath();
-            ctx.arc(ball.currPos.x, ball.currPos.y, radius,0,2*Math.PI);
+            ctx.arc(ball.currPos.x, ball.currPos.y, radius, 0, 2 * Math.PI);
             ctx.fill();
             ball.update();
         }
     }
-    
-    window.requestAnimationFrame(update);
 
+    window.requestAnimationFrame(update);
 </script>
