@@ -10,21 +10,22 @@
             this.speed = speed
         }
 
-        manageWallHit() {
+        manageWallHit(dir) {
+            if (dir == 'x') {
+                this.speed.dx = -this.speed.dx
+            } else {
+                this.speed.dy = -this.speed.dy
+            }
 
-            var x = this.currPos.x
-            var y = this.currPos.y
-            var angle = 180 - Math.atan2(y / x) * 180 / Math.PI
         }
 
         update() {
-
             if (this.currPos.x + radius >= canvas.width || this.currPos.x - radius <= 0) {
-                this.manageWallHit()
+                this.manageWallHit('x')
             }
 
             if (this.currPos.y + radius >= canvas.height || this.currPos.y - radius <= 0) {
-                this.manageWallHit()
+                this.manageWallHit('y')
             }
 
             this.currPos.x += this.speed.dx
@@ -44,8 +45,20 @@
         []
     ]
     balls = [new Ball(1, {
-        x: 30,
+        x: 100,
         y: 30
+    }, {
+        dx: 1,
+        dy: 1
+    }), new Ball(1, {
+        x: 200,
+        y: 60
+    }, {
+        dx: 1,
+        dy: 1
+    }), new Ball(1, {
+        x: 60,
+        y: 40
     }, {
         dx: 1,
         dy: 1
