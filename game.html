@@ -73,14 +73,10 @@
     function drawBoard() {
         refreshBoard()
         for (var ball of balls) {
-            ctx.beginPath(); <<
-            << << < HEAD
-            ctx.arc(ball.currPos.x, ball.currPos.y, radius, 0, 2 * Math.PI); ===
-            === =
+            ctx.beginPath();
             ctx.arc(ball.currPos.x, ball.currPos.y, radius, 0, 2 * Math.PI);
-            ctx.lineWidth = 1;
-            ctx.stroke(); >>>
-            >>> > 03821 dc31757f656df4504f97e7d4ddab62baa96
+            ctx.lineWidth = 2;
+            ctx.stroke();
             ctx.fill();
             ball.update();
         }
