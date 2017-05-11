@@ -14,11 +14,7 @@
 
             var x = this.currPos.x
             var y = this.currPos.y
-
             var angle = 180 - Math.atan2(y / x) * 180 / Math.PI
-
-            // this.currPos.x = Math.atan2(angle)
-            // this.currPos.y = 
         }
 
         update() {
@@ -77,8 +73,14 @@
     function drawBoard() {
         refreshBoard()
         for (var ball of balls) {
-            ctx.beginPath();
+            ctx.beginPath(); <<
+            << << < HEAD
+            ctx.arc(ball.currPos.x, ball.currPos.y, radius, 0, 2 * Math.PI); ===
+            === =
             ctx.arc(ball.currPos.x, ball.currPos.y, radius, 0, 2 * Math.PI);
+            ctx.lineWidth = 1;
+            ctx.stroke(); >>>
+            >>> > 03821 dc31757f656df4504f97e7d4ddab62baa96
             ctx.fill();
             ball.update();
         }
