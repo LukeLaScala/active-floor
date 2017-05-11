@@ -17,7 +17,6 @@
             var angle = 2*Math.PI - atan(y / x)
             
             this.currPos.x = tan(angle)
-            this.currPos.y = 
         }
 
         update() {
@@ -66,6 +65,8 @@
         for(var ball of balls){
             ctx.beginPath();
             ctx.arc(ball.currPos.x, ball.currPos.y, radius,0,2*Math.PI);
+            ctx.lineWidth = 1;
+            ctx.stroke();
             ctx.fill();
             ball.update();
         }
