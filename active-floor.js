@@ -7,9 +7,17 @@
  */
 'use strict';
 
+let data;
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://activefloor.bca.bergen.org:8080/');
+xhr.addEventListener('load', function() { data = this.repsonseText; });
+xhr.send();
+
+doucment.querySelector('body').classList.add('app');
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
+canvas.classList.add('app');
 ctx.lineWidth = 2;
 canvas.height = canvas.width;
 
@@ -18,10 +26,12 @@ const balls = [];
 const minSpeed = { x: 1, y: 1 };
 const maxSpeed = { x: 2, y: 2 };
 const activeMark = '*';
+
 let steppingState;
 
 (function renderView() {
-    const data = /* Get sensor data */ [
+    /* Temp data */
+    data = /* Get sensor data */ [
         ['.', '*', '.', '.'],
         ['.', '.', '*', '.'],
         ['.', '*', '.', '.'],
