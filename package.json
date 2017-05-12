@@ -1,0 +1,22 @@
+{
+  "name": "active-floor",
+  "version": "1.0.0",
+  "description": "A simple multiplayer game built for a BrightLogic Active Floor.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukeLaScala/active-floor.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LukeLaScala/active-floor/issues"
+  },
+  "homepage": "https://github.com/LukeLaScala/active-floor#readme",
+  "dependencies": {
+    "xml-parser": "^1.2.1"
+  }
+}

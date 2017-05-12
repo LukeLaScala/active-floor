@@ -13,7 +13,7 @@ const ctx = canvas.getContext('2d');
 ctx.lineWidth = 2;
 canvas.height = canvas.width;
 
-const radius = 20;
+const radius = 10;
 const balls = [];
 const minSpeed = { x: 1, y: 1 };
 const maxSpeed = { x: 2, y: 2 };
@@ -58,7 +58,7 @@ function shootBalls() {
 /**
  * @description - Creates a ball with the specified properties.
  * @param {number} senderQuadrant — The quadrant that the ball is sent from.
- * @param {Object} currPos — currPos
+ * @param {Object} currPos — The c
  * @param {number} speed — speed
  */
 function Ball(senderQuadrant, currPos, speed) {
